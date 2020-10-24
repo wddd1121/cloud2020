@@ -3,9 +3,31 @@ server:
 
 
 
+
+eureka:
+  client:
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: payment8001  # 修改服务的status名字
+    prefer-ip-address: true   # 服务显示IP地址
+
+    # 向eureka server发送心跳的时间间隔，默认为30s
+    lease-renewal-interval-in-seconds: 1
+    # eureka server等待下一次心跳的时间上限，默认为90s
+    lease-expiration-duration-in-seconds: 2
+
+
+# desktop-hqp2aig:8001/actuator/health 健康检查
+
+
 spring:
   application:
-    name: cloud-Payment-provider
+    name: cloud-payment-provider
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver

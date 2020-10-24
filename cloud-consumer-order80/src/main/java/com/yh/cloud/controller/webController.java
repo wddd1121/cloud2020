@@ -16,20 +16,20 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/consumer")
 public class webController {
 
-    public static final String payment_url = "http://localhost:8001/payment";
+//    public static final String payment_url = "http://localhost:8001";
+    public static final String payment_url = "http://CLOUD-PAYMENT-PROVIDER";   // 服务为多个端口上的服务，所以需要使用服务名，而不是端口号
 
     @Autowired
     RestTemplate restTemplate;
 
     @GetMapping("/payment/get/{id}")
     public CommonResult get(@PathVariable("id") long id) {
-        log.info("进入consumer的get中了!asdasda");
-        return restTemplate.getForObject(payment_url + "/get/" + id, CommonResult.class);
+        return restTemplate.getForObject(payment_url + "/payment/get/" + id, CommonResult.class);
     }
 
     @PostMapping("/payment/save")
     public CommonResult save(Payment payment) {
-        return restTemplate.postForObject(payment_url + "/save", payment, CommonResult.class);
+        return restTemplate.postForObject(payment_url + "/payment/save", payment, CommonResult.class);
     }
 
 

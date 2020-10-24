@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-payment-provider8001</artifactId>
-
+    <artifactId>cloud-payment-provider8002</artifactId>
 
     <dependencies>
         <!-- 包含了sleuth zipkin 数据链路追踪-->

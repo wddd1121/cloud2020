@@ -1,17 +1,12 @@
 package com.yh.cloud.controller;
 
-
 import com.yh.cloud.pojo.CommonResult;
 import com.yh.cloud.pojo.Payment;
 import com.yh.cloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 
 /**
@@ -23,14 +18,12 @@ import java.util.List;
 @RequestMapping("/payment")
 public class PaymentController {
 
-    @Autowired
-    PaymentService paymentService;
-
     @Value("${server.port}")
     private String port;
 
+
     @Autowired
-    DiscoveryClient discoveryClient;    // 服务发现
+    PaymentService paymentService;
 
     @PostMapping("/save")
     public CommonResult save(@RequestBody Payment payment) {    // 另外一个服务调用此接口时，需要加上@requestBody，不然属性注入不到这个payment中
@@ -38,7 +31,7 @@ public class PaymentController {
         log.info("插入数据结果======" + result);
 
         if (result > 0) {
-            return new CommonResult<>(200, "插入成功, 端口号:"+port, result);
+            return new CommonResult<>(200, "插入成功，端口号为:"+port, result);
         } else {
             return new CommonResult<>(500, "插入失败");
         }
@@ -56,20 +49,6 @@ public class PaymentController {
             return new CommonResult<>(500, "查询失败");
         }
 
-    }
-
-    @GetMapping("/discovery")
-    public Object discovery(){
-        // 获得所有服务的serviceId，等于spring.application.name
-        List<String> services = discoveryClient.getServices();
-        services.forEach(log::info);
-
-        // 通过服务的名称，获得服务列表
-        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-PROVIDER");
-
-        instances.forEach(System.out::println);
-
-        return instances;
     }
 
 
