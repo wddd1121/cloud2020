@@ -1,0 +1,5 @@
+com\yh\cloud\pojo\CommonResult.class
+com\yh\cloud\config\applicationConfig.class
+com\yh\cloud\ConsumerApplication.class
+com\yh\cloud\controller\webController.class
+com\yh\cloud\pojo\Payment.class
