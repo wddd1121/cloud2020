@@ -7,17 +7,17 @@
     <groupId>com.yh.springcloud</groupId>
     <artifactId>cloud2020</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>cloud-payment-provider8002</module>
-    </modules>
     <packaging>pom</packaging>
-    <!--<modules>-->
-        <!--<module>com.yh.cloud-payment-provider8001</module>-->
-        <!--<module>com.yh.cloud-consumer-order80</module>-->
-        <!--<module>com.yh.cloud-api-common</module>-->
-        <!--<module>com.yh.cloud-eureka-server7001</module>-->
-        <!--<module>com.yh.cloud-eureka-server7002</module>-->
-    <!--</modules>-->
+    <modules>
+        <module>cloud-payment-provider8001</module>
+        <module>cloud-consumer-order80</module>
+        <module>cloud-api-common</module>
+        <module>cloud-eureka-server7001</module>
+        <module>cloud-eureka-server7002</module>
+        <module>cloud-payment-provider8002</module>
+        <module>cloud-payment-provider8004</module>
+        <module>cloud-consumerzk-order80</module>
+    </modules>
 
 
     <!--统一管理jar包版本-->
