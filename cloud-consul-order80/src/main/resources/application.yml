@@ -1,0 +1,17 @@
+server:
+  port: 80
+spring:
+  application:
+    name: consul-oreder-consumer
+
+    # 将该服务注册到consul
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        host-name: localhost
+        service-name: ${spring.application.name}
+
+
+

@@ -12,10 +12,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 @MapperScan("com.yh.cloud.dao")
 @SpringBootApplication
-public class Payment8002 {
+public class EurekaPayment8002 {
 
     public static void main(String[] args) {
-        SpringApplication.run(Payment8002.class, args);
+        SpringApplication.run(EurekaPayment8002.class, args);
     }
 
 

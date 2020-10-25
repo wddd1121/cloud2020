@@ -1,0 +1,17 @@
+server:
+  port: 8006
+spring:
+  application:
+    name: consul-payment-provider
+
+    # 将该服务注册到consul
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        host-name: localhost
+        service-name: ${spring.application.name}
+
+
+

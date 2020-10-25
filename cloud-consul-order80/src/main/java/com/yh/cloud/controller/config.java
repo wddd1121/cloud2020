@@ -1,4 +1,4 @@
-package com.yh.cloud.config;
+package com.yh.cloud.controller;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -7,14 +7,15 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * @author yh
- * @date 2020-10-24-22:10
+ * @date 2020-10-25-10:12
  */
 @Configuration
-public class applicationConfig {
+public class config {
+
 
     @Bean
-    @LoadBalanced
-    public RestTemplate get(){
-        return  new RestTemplate();
+    @LoadBalanced   // 不加上该注解，会出现UnknownHostException错误
+    public RestTemplate get() {
+        return new RestTemplate();
     }
 }
