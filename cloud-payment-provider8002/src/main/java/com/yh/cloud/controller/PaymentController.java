@@ -58,4 +58,18 @@ public class PaymentController {
     }
 
 
+    @GetMapping("/fegin/timeout")
+    public String testFeginTimeout(){
+        try {
+            log.info("调用延迟0.5秒的服务");
+            // fegin客户端默认等待1秒，如果1秒没有拿到结果则会报错
+            // 这里模拟0.5秒后返回结果
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return port;
+    }
+
 }

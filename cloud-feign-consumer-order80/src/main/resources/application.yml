@@ -1,0 +1,24 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+spring:
+  application:
+    name: fegin-consumer
+
+# 设置fegin客户端的超时间时，openFegin默认支持ribbon
+ribbon:
+  # 从service获得结果的超时时间，默认为1秒
+  ReadTimeout: 5000
+  # 连接到服务的超时时间，
+  ConnectTimeout: 5000
+
+# 开启fegin的日志，监控FeginService接口
+logging:
+  level:
+    com.yh.cloud.service.FeginService: debug
