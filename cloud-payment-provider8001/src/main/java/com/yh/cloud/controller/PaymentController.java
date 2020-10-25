@@ -38,7 +38,7 @@ public class PaymentController {
         log.info("插入数据结果======" + result);
 
         if (result > 0) {
-            return new CommonResult<>(200, "插入成功, 端口号:"+port, result);
+            return new CommonResult<>(200, "插入成功, 端口号:" + port, result);
         } else {
             return new CommonResult<>(500, "插入失败");
         }
@@ -51,7 +51,7 @@ public class PaymentController {
         log.info("查询数据结果======" + payment);
 
         if (payment != null) {
-            return new CommonResult<>(200, "查询成功，端口号为:"+port, payment);
+            return new CommonResult<>(200, "查询成功，端口号为:" + port, payment);
         } else {
             return new CommonResult<>(500, "查询失败");
         }
@@ -59,7 +59,7 @@ public class PaymentController {
     }
 
     @GetMapping("/discovery")
-    public Object discovery(){
+    public Object discovery() {
         // 获得所有服务的serviceId，等于spring.application.name
         List<String> services = discoveryClient.getServices();
         services.forEach(log::info);
@@ -70,6 +70,11 @@ public class PaymentController {
         instances.forEach(System.out::println);
 
         return instances;
+    }
+
+    @GetMapping("/test/lb")
+    public String testLoadBalance() {
+        return "测试自定义负载均衡" + port;
     }
 
 

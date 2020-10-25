@@ -52,4 +52,10 @@ public class PaymentController {
     }
 
 
+    @GetMapping("/test/lb")
+    public String testLoadBalance() {
+        return "测试自定义负载均衡" + port;
+    }
+
+
 }
