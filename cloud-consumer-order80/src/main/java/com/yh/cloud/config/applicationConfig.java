@@ -14,7 +14,7 @@ public class applicationConfig {
 
 
     @Bean
-//    @LoadBalanced   // 开启多个服务的负载均衡
+    @LoadBalanced   // 开启多个服务的负载均衡
     public RestTemplate get(){
         return new RestTemplate();
     }
