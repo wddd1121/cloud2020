@@ -22,9 +22,14 @@
         <module>cloud-feign-consumer-order80</module>
         <module>cloud-hystrix-payment-provider8001</module>
         <module>cloud-hystrix-payment-consumer80</module>
-        <module>cloud-consumer-hystrix-dashboard9001</module>
         <module>cloud-hystrix-dashboard9001</module>
         <module>cloud-gateway-9527</module>
+        <module>cloud-config-center3344</module>
+        <module>cloud-config-client3355</module>
+        <module>cloud-config-client3366</module>
+        <module>cloud-rabbitmq-provider8801</module>
+        <module>cloud-rabbitmq-consumer8802</module>
+        <module>cloud-rabbitmq-consumer8803</module>
     </modules>
 
 
@@ -130,12 +135,34 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.4.RELEASE</version>
                 <configuration>
                     <fork>true</fork>
                     <addResources>true</addResources>
                 </configuration>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.yml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.yml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
     </build>
 
     <repositories>
@@ -162,6 +189,8 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
+
 
 
 </project>
