@@ -1,0 +1,17 @@
+server:
+  port: 9005
+
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #服务注册中心地址
+      config:
+        server-addr: localhost:8848 #配置中心地址
+        file-extension: yaml        #指定yaml格式的配置
+#        namespace:                  # 定义配置的命名空间，默认为public，值为命名空间id
+        group: DEV_GROUP            # 不配置默认去default_group中找
+
+# ${spring.application.name}-${spring.profiles.active}.${file-extension}
