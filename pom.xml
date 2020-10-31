@@ -34,6 +34,11 @@
         <module>nacos-payment-provider9003</module>
         <module>nacos-payment-consumer9004</module>
         <module>nacos-config-client9005</module>
+        <module>sentinel-service8401</module>
+        <module>sentinel-payment-provider9004</module>
+        <module>sentinel-payment-provider9005</module>
+        <module>sentinel-payment-consumer84</module>
+        <module>sentinel-fegin-payment-consumer85</module>
     </modules>
 
 
