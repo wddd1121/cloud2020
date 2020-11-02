@@ -39,6 +39,9 @@
         <module>sentinel-payment-provider9005</module>
         <module>sentinel-payment-consumer84</module>
         <module>sentinel-fegin-payment-consumer85</module>
+        <module>seata-order-service2001</module>
+        <module>seata-store-service2002</module>
+        <module>seata-account-service2003</module>
     </modules>
 
 
@@ -159,6 +162,7 @@
                     <include>**/*.yml</include>
                     <include>**/*.properties</include>
                     <include>**/*.xml</include>
+                    <include>**/*.conf</include>
                 </includes>
                 <filtering>false</filtering>
             </resource>
@@ -168,6 +172,7 @@
                     <include>**/*.yml</include>
                     <include>**/*.properties</include>
                     <include>**/*.xml</include>
+                    <include>**/*.conf</include>
                 </includes>
                 <filtering>false</filtering>
             </resource>
